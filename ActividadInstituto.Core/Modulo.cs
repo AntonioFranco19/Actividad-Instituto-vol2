@@ -1,13 +1,13 @@
-﻿namespace ActividadInstituto;
+﻿namespace ActividadInstituto.Core;
 
 public class Modulo
 {
-    public int Id { get; private set; }
-    public string Nombre { get; private set; }
+    public string? Id { get; private set; }
+    public string? Nombre { get; private set; }
     public int Horas { get; private set; }
     public Profesor Profesor { get; private set; }
 
-    public Modulo(int id, string nombre, int horas = 100)
+    public Modulo(string? id, string? nombre, int horas = 100)
     {
         Id = id;
         Nombre = nombre;

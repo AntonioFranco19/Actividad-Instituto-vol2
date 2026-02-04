@@ -14,4 +14,8 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ActividadInstituto.Core\ActividadInstituto.Core.csproj" />
+    </ItemGroup>
+
 </Project>

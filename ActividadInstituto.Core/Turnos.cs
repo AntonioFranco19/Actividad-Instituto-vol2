@@ -1,4 +1,4 @@
-﻿namespace ActividadInstituto;
+﻿namespace ActividadInstituto.Core;
 
 public enum Turnos
 {

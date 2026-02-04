@@ -1,11 +1,21 @@
-﻿
-using ActividadInstituto.Core;
-namespace ActividadInstituto;
+﻿using ActividadInstituto.Core;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Configuration;
 
-public class Program
+namespace ActividadInstituto.App;
+
+public class GestionCentro
 {
-    public static void Main(string[] args)
+    private ILogger<GestionCentro> _logger;
+    
+    public GestionCentro(ILogger<GestionCentro> logger)
     {
+        _logger = logger;
+    }
+    public void Ejecutar()
+    {
+        
+        _logger.LogInformation("Iniciando aplicación...");
         Centro europa = new Centro(1, "IES Europa", "dirección", "telefono");
         CicloFormativo? cicloSeleccionado = null;
 
@@ -123,8 +133,8 @@ public class Program
 
         } while (repetir);
     }
-
-    public static void ObtenerFichas(List<IInfodetallada> lista)
+    
+        public void ObtenerFichas(List<IInfodetallada> lista)
     {
         foreach (var variable in lista)
         {
@@ -132,7 +142,7 @@ public class Program
         }
     }
 
-    public static void Menu()
+    public void Menu()
     {
         Console.WriteLine(" ");
         Console.WriteLine("\t================ M  E  N  Ú ==================");
@@ -149,7 +159,7 @@ public class Program
         Console.WriteLine("\t==============================================");
     }
 
-    public static void Bienvenida()
+    public void Bienvenida()
     {
         Console.WriteLine(" ");
         Console.WriteLine("\t+==========================================+");
@@ -162,7 +172,7 @@ public class Program
         Console.WriteLine(" ");
     }
 
-    public static void Despedida()
+    public void Despedida()
     {
         Console.WriteLine(" ");
         Console.WriteLine(" ");
@@ -176,4 +186,3 @@ public class Program
     }
 
 }
-

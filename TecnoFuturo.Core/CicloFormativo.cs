@@ -1,10 +1,10 @@
-﻿namespace ActividadInstituto.Core;
+﻿namespace TecnoFuturo.Core;
 
 public class CicloFormativo : IInfodetallada
 {
     private readonly List<Modulo> _asignaturas = [];
 
-    public CicloFormativo(string nombre, string? idModulo, Turnos turno)
+    public CicloFormativo(string? nombre, string? idModulo, Turnos turno)
     {
         Nombre = nombre;
         IdModulo = idModulo;
@@ -12,7 +12,7 @@ public class CicloFormativo : IInfodetallada
     }
 
     public string? IdModulo { get; }
-    public string Nombre { get; }
+    public string? Nombre { get; }
     public Turnos Turno { get; }
 
     public void AgregarModulo()
@@ -37,7 +37,7 @@ public class CicloFormativo : IInfodetallada
             foreach (Modulo modulo in _asignaturas)
             {
                 Console.WriteLine(
-                    $"| {modulo.Id,5} | {modulo.Nombre,-40} | {modulo.Horas,3} | {modulo.Profesor.Nombre,-40} |");
+                    $"| {modulo.Id,5} | {modulo.Nombre,-40} | {modulo.Horas,3} | {modulo.Profesor!.Nombre,-40} |");
             }
         }
         Console.WriteLine(new string('=', 101));
@@ -66,7 +66,7 @@ public class CicloFormativo : IInfodetallada
     }
 
 
-    public string? ObtenerFicha()
+    public string ObtenerFicha()
     {
         return $"Nombre: {Nombre} Id del modulo {IdModulo} Turno: {Turno} ";
     }

@@ -1,4 +1,4 @@
-﻿namespace ActividadInstituto.Core;
+﻿namespace TecnoFuturo.Core;
 
 public interface IInfodetallada
 {

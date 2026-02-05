@@ -1,8 +1,7 @@
-﻿using ActividadInstituto.Core;
+﻿using TecnoFuturo.Core;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Configuration;
 
-namespace ActividadInstituto.App;
+namespace TecnoFuturo.App;
 
 public class GestionCentro
 {
@@ -14,10 +13,10 @@ public class GestionCentro
     }
     public void Ejecutar()
     {
-        
         _logger.LogInformation("Iniciando aplicación...");
         Centro europa = new Centro(1, "IES Europa", "dirección", "telefono");
         CicloFormativo? cicloSeleccionado = null;
+        List<IInfodetallada> lista = Cargarlista(); 
 
         /*
         Modulo programacion = new Modulo(idModulo++, "Programacion");
@@ -112,17 +111,18 @@ public class GestionCentro
                     {
                         europa.ListarAlumnos();
                     }
-
                     break;
                 case "8":
                     europa.Estadísticas();
                     break;
                 case "9":
+                    ObtenerFichas(lista);
                     break;
                 case "10":
                     repetir = false;
                     Console.Clear();
                     europa.Dispose();
+                    _logger.LogInformation("Cerrando aplicación...");
                     Despedida();
                     break;
                 default:
@@ -134,13 +134,32 @@ public class GestionCentro
         } while (repetir);
     }
     
-        public void ObtenerFichas(List<IInfodetallada> lista)
+    
+    
+    public void ObtenerFichas(List<IInfodetallada> lista)
     {
         foreach (var variable in lista)
         {
-            variable.ObtenerFicha();
+            Console.WriteLine(variable.ObtenerFicha());
         }
     }
+
+    public List<IInfodetallada> Cargarlista()
+    {
+        CicloFormativo dam =
+            new CicloFormativo("DAM", "Desarrollo de aplicaciones Multiplataforma", Turnos.Vespertino);
+        List<IInfodetallada> lista = new();
+        Alumno alumno = new("123", "Antonio", "telefono", "Dir1", "antonio@mail", "173427", dam);
+        Profesor diego = new Profesor("Informática", "111223344A", "Diego Martínez Cazorla", "diego@murciaeduca.es");
+        Profesor sebastian = new Profesor("Informática", "123456789B","Sebastian Martinez Perez", "sebastian@murciaeduca.es");
+        
+        lista.Add(dam);
+        lista.Add(alumno);
+        lista.Add(diego);
+        lista.Add(sebastian);
+
+        return lista;
+    } 
 
     public void Menu()
     {

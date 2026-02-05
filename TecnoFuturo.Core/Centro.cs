@@ -1,11 +1,12 @@
-﻿namespace ActividadInstituto.Core;
+﻿
+namespace TecnoFuturo.Core;
 
 public class Centro : IDisposable
 {
     public int Id { get; }
-    public string Nombre { get; }
-    public string Direccion { get; }
-    public string Telefono { get; }
+    public string? Nombre { get; }
+    public string? Direccion { get; }
+    public string? Telefono { get; }
     private readonly List<CicloFormativo> _listaCiclos = [];
     private readonly List<Alumno> _listaAlumno = [];
 
@@ -43,7 +44,7 @@ public class Centro : IDisposable
 
     public CicloFormativo? SeleccionarCiclo()
     {
-        if (_listaCiclos.Count() == 0)
+        if (_listaCiclos.Count == 0)
         {
             Console.WriteLine("El centro no tiene ciclos formativos aún!");
             return null;

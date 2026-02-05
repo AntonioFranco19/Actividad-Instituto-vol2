@@ -1,4 +1,4 @@
-﻿namespace ActividadInstituto.Core;
+﻿namespace TecnoFuturo.Core;
 
 public abstract class Persona : IInfodetallada
 {
@@ -23,11 +23,15 @@ public abstract class Persona : IInfodetallada
     public string? Email
     {
         get => _email;
-        set
+        init
         {
             if (value!.Contains('@'))
             {
                 _email = value;
+            }
+            else
+            {
+                throw new Exception("Email debe contener @");
             }
         }
     }

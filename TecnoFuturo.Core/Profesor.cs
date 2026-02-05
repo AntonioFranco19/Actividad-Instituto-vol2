@@ -1,4 +1,4 @@
-﻿namespace ActividadInstituto.Core;
+﻿namespace TecnoFuturo.Core;
 
 public class Profesor : Persona
 {
@@ -22,8 +22,8 @@ public class Profesor : Persona
         Console.WriteLine("Impartiendo lección...");
     }
 
-    public override string? ObtenerFicha()
+    public override string ObtenerFicha()
     {
-        return $"Nombre: {Nombre} Especialidad {Especialidad} Email {Email} ";
+        return $"Nombre: {Nombre} Especialidad: {Especialidad} Email: {Email} ";
     }
 }

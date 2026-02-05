@@ -1,4 +1,4 @@
-﻿namespace ActividadInstituto.Core;
+﻿namespace TecnoFuturo.Core;
 
 public static class Utilidades
 {
@@ -96,7 +96,7 @@ public static class Utilidades
     public static Alumno CrearAlumno(CicloFormativo ciclo)
     {
         Alumno alumno = new Alumno(LeerCadena("NIF:", true), LeerCadena("NOMBRE:", true),
-            LeerCadena("TELEFONO:", false), LeerCadena("DIRECCIÓN:", false), LeerCadena("EMAIL:", false), ciclo);
+            LeerCadena("TELEFONO:", false), LeerCadena("DIRECCIÓN:", false), LeerCadena("EMAIL:", false), LeerCadena("Expediente", true), ciclo);
         Console.WriteLine("\nSe ha creado el alumno.");
         return alumno;
     }
